@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import logo from "./logo.svg";
 import "./App.css";
 import { simpleAction } from "./actions/simpleAction";
-
+import CreateTopic from "./components/createTopic";
 const mapStateToProps = state => ({
   ...state
 });
@@ -28,7 +28,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={this.simpleAction}>Test redux action</button>
-        <pre>{JSON.stringify(this.props)}</pre>
+        <CreateTopic />
       </div>
     );
   }
