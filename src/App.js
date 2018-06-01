@@ -28,7 +28,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={this.simpleAction}>Test redux action</button>
-        <CreateTopic />
+        <div className="formArea">
+          <CreateTopic />
+        </div>
       </div>
     );
   }
