@@ -28,7 +28,7 @@ class CreateTopic extends Component {
   submitTopicContent(event){
     let topic = {}
     topic.name = this.state.name
-    topic.year  = this.state.yearEstablished
+    topic.yearEstablished  = this.state.yearEstablished
     topic.description = this.state.description
     console.log(topic);
     this.props.submitTopic(topic)
