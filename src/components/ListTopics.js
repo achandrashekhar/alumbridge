@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as topicActions from '../actions/createTopicAction'
+
 
 class ListTopics extends Component {
-  componentDidUpdate(){
-    console.log("this is being called");
-    console.log(this.props.topics)
+  constructor(props){
+    super(props)
+    this.props.topicIsLoading(true)
+    this.props.fetchTopic()
+  }
+  componentDidMount(){
+
+
   }
   render(){
     return(
@@ -24,5 +31,12 @@ const mapStateToProps = (state) => {
     };
 };
 
+const mapDispatchToProps = (dispatch) =>{
+  return {
+      fetchTopic: () => dispatch(topicActions.fetchTopic()),
+      topicIsLoading:(isLoading)=>dispatch(topicActions.topicIsLoading(isLoading))
+  };
+}
 
-export default connect(mapStateToProps)(ListTopics)
+
+export default connect(mapStateToProps,mapDispatchToProps)(ListTopics)

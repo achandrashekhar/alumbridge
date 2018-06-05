@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./createTopic.css";
 import * as topicActions from '../actions/createTopicAction'
 import ListTopics from './ListTopics'
-
+import Loader from './Loader'
 class CreateTopic extends Component {
 
   state = {
@@ -14,11 +14,10 @@ class CreateTopic extends Component {
 
   setName(e){
     this.setState({name:e.target.value})
-    console.log(this.state);
   }
 
   setYearEstablished(e){
-    this.setState({yearEstablished:e.target.value})
+    this.setState({yearEstablished:parseInt(e.target.value)})
   }
 
   setDescription(e){
@@ -50,7 +49,7 @@ class CreateTopic extends Component {
           <button onClick={e => {this.submitTopicContent(e)}}> Submit </button>
         </div>
         <div>
-          <ListTopics />
+          {this.props.isLoading===true?<Loader />:<ListTopics />}
         </div>
       </div>
     )
@@ -60,7 +59,8 @@ class CreateTopic extends Component {
 const mapStateToProps = (state) => {
     return {
         topics: state.topics,
-        isBeingCreated: state.isBeingCreated
+        isBeingCreated: state.isBeingCreated,
+        isLoading : state.isLoading
     };
 };
 

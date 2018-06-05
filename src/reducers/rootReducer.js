@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import simpleReducer from './simpleReducer';
 import {items, itemsIsLoading, itemsHasErrored} from './itemReducer'
-import {topicIsBeingCreated, topics} from './createTopicReducer'
+import {topicIsBeingCreated, topics, isLoading} from './createTopicReducer'
 
 export default combineReducers({
  items,
@@ -9,5 +9,6 @@ export default combineReducers({
  itemsHasErrored,
  simpleReducer,
  topicIsBeingCreated,
- topics
+ topics,
+ isLoading
 });
